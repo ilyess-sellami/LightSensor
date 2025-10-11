@@ -20,7 +20,7 @@
 
 ## 1 - Overview & objectives 
 
-This lab — **LightSensor** — demonstrates how to deploy a lightweight Suricata-based IDS/IPS sensor, add local rules to detect common network attacks (port scans, ICMP floods, SQL-injection tool user-agents, brute-force attempts, simple exploit URIs), and how to run attacks from an attacker machine (your PC) to trigger and examine alerts.
+This lab — **LightSensor** — demonstrates how to **deploy a lightweight Suricata-based IDS/IPS sensor**, add local rules to **detect common network attacks** (port scans, ICMP floods, SQL-injection tool user-agents, brute-force attempts, simple exploit URIs), and how to **run attacks from an attacker machine** to trigger and examine alerts.
 
 Objectives:
 
