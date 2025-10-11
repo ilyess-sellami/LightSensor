@@ -138,6 +138,8 @@ sudo suricata -c /etc/suricata/suricata.yaml -i eth0
 - To daemonize, add `-D`.
 - Suricata logs: `/var/log/suricata/suricata.log` and `/var/log/suricata/eve.json`.
 
+![Start Suricata](/images/Start-Suricata.png)
+
 ---
 
 ## 7 — Run attack scripts from your attacker machine
@@ -191,11 +193,15 @@ Allow a few seconds after each test for Suricata to log events.
 sudo tail -f /var/log/suricata/eve.json
 ```
 
+![JSON ALERTS](/images/JSON-ALERTS.png)
+
 ### 8.2 - Use `jq` to show only alerts in compact form
 
 ```bash
 sudo tail -f /var/log/suricata/eve.json | jq -c 'select(.event_type=="alert") | {time:.timestamp, src:.src_ip, dst:.dest_ip, sig:.alert.signature}'
 ```
+
+![QUERY ALERTS](/images/QUERY-ALERTS.png)
 
 ### 8.3 - Use the provided parser for prettier lines
 
