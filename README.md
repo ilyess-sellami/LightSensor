@@ -101,6 +101,7 @@ cd LightSensor
 2. Run the setup script as root:
 
 ```bash
+chmod +x ./scripts/setup_ids.sh
 sudo ./scripts/setup_ids.sh
 ```
 
