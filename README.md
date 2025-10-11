@@ -64,17 +64,13 @@ All connected on internal network (e.g., int-net-lab) or host-only network.
 
 ![Network Architecture Example with IPS](/images/Network-Architecture-Example-with-IPS.png)
 
-### 3.3 How we use IDS vs IPS in enterprise
+### 3.3 - How we use IDS vs IPS in enterprise
 
 - **IDS (monitoring):** Tap or SPAN port — passive monitoring for detection and investigation.
 
 - **IPS (prevention):** Inline device or NSM function — blocks traffic (use only after rigorous testing).
 
 ![IDS vs IPS](/images/IDS-vs-IPS.jpeg)
-
----
-
-## 3 - 
 
 ---
 
@@ -112,6 +108,8 @@ sudo ./scripts/setup_ids.sh
 
 This script installs packages, creates necessary directories, and copies `configs/suricata/*` to `/etc/suricata/` and `/etc/suricata/rules/`.
 
+---
+
 ## 6 — Start Suricata (IDS / pcap mode)
 
 1. Identify your network interface:
@@ -128,6 +126,8 @@ sudo suricata -c /etc/suricata/suricata.yaml -i eth0
 
 - To daemonize, add `-D`.
 - Suricata logs: `/var/log/suricata/suricata.log` and `/var/log/suricata/eve.json`.
+
+---
 
 ## 7 — Run attack scripts from your attacker machine
 
