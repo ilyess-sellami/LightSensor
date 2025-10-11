@@ -4,9 +4,9 @@
 
 ## Overview
 
-LightSensor is a compact, reproducible lab showing how to deploy a Suricata IDS/IPS sensor, test it with common network attacks from an attacker machine, and inspect the alerts. This README explains what an IDS/IPS is, the lab topology, prerequisites, and exact commands to run the prepared scripts and view results.
+**LightSensor** is a **compact, reproducible lab** showing how to **deploy a Suricata IDS/IPS sensor**, test it with common **network attacks** from an attacker machine, and **inspect the alerts**. This README explains what an IDS/IPS is, the lab topology, prerequisites, and exact commands to run the prepared scripts and view results.
 
- ⚠️ WARNING: Only run attacks in a controlled lab network you own. Do not attack systems you don’t own or have permission to test.
+ ⚠️ **WARNING:** Only run attacks in a controlled lab network you own. Do not attack systems you don’t own or have permission to test.
 
 ---
 
