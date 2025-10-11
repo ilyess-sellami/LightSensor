@@ -2,19 +2,11 @@
 
 ---
 
-## Overview
-
-**LightSensor** is a **compact, reproducible lab** showing how to **deploy a Suricata IDS/IPS sensor**, test it with common **network attacks** from an attacker machine, and **inspect the alerts**. This README explains what an IDS/IPS is, the lab topology, prerequisites, and exact commands to run the prepared scripts and view results.
-
- ⚠️ **WARNING:** Only run attacks in a controlled lab network you own. Do not attack systems you don’t own or have permission to test.
-
----
-
 ## Table of contents
 
-1. What is IDS vs IPS?
-2. Lab topology
-3. Files you have (scripts & configs)
+1. Overview & objectives
+2. Introduction to IDS vs IPS (short)
+3. Architecture and network diagrams
 4. Prerequisites (IDS VM + attacker PC)
 5. Install & configure the IDS (one command)
 6. Start Suricata (IDS mode)
@@ -26,20 +18,34 @@
 
 ---
 
-## 1 — What is IDS vs IPS?
+## 1 - Overview & objectives 
+
+This lab — **LightSensor** — demonstrates how to deploy a lightweight Suricata-based IDS/IPS sensor, add local rules to detect common network attacks (port scans, ICMP floods, SQL-injection tool user-agents, brute-force attempts, simple exploit URIs), and how to run attacks from an attacker machine (your PC) to trigger and examine alerts.
+
+Objectives:
+
+- Build a reproducible lab you can share on GitHub.
+- Configure Suricata as an IDS (pcap mode) and optionally as an IPS (inline/NFQUEUE) for blocking tests.
+- Add local rules tailored for lab testing (nmap scans, sqlmap user-agent, ICMP floods, etc.).
+- Run scripted attacks from your PC and collect/parse alerts from `/var/log/suricata/eve.json`.
+
+Target audience: cybersecurity students, pentesters, engineers learning network detection.
+
+---
+
+## 2 — Introduction to IDS vs IPS (short)
 
 - **IDS (Intrusion Detection System):** passive—sniffs traffic and **alerts** when rules match suspicious patterns (pcap mode). Good for detection and investigation.
 
 - **IPS (Intrusion Prevention System):** inline—can **drop** or modify packets when rules match (NFQUEUE/AF_PACKET). Blocks traffic but can disrupt services if misconfigured.
 
-This lab uses **Suricata** as IDS by default (safer). We include notes for IPS/inline if you later want to test blocking.
+This lab focuses on IDS (pcap) for safety and resource constraints, with notes for running IPS inline if you want to test blocking.
 
 ---
 
-## 2 — Lab topology
+## 3 — Architecture and network diagrams
 
-Single VirtualBox host or small lab network:
-
+### 3.1 - Simple lab topology
 ```pgsql
 [Host machine / VirtualBox]
   ├─ IDS VM (Ubuntu + Suricata)    IP: 10.0.0.10  (recommended 2GB RAM)
@@ -48,7 +54,23 @@ Single VirtualBox host or small lab network:
 All connected on internal network (e.g., int-net-lab) or host-only network.
 ```
 
-Enterprise placement: IDS typically receives mirrored (SPAN) traffic from switches; IPS sits inline on a traffic path. This lab keeps it simple and local.
+### 3.2 - Enterprise placement (how IDS/IPS fits into enterprise network)
+
+#### Network Architecture Example with IDS
+
+![Network Architecture Example with IDS](/images/Network-Architecture-Example-with-IDS.png)
+
+#### Network Architecture Example with IPS
+
+![Network Architecture Example with IPS](/images/Network-Architecture-Example-with-IPS.png)
+
+### 3.3 How we use IDS vs IPS in enterprise
+
+- **IDS (monitoring):** Tap or SPAN port — passive monitoring for detection and investigation.
+
+- **IPS (prevention):** Inline device or NSM function — blocks traffic (use only after rigorous testing).
+
+![IDS vs IPS](/images/IDS-vs-IPS.jpeg)
 
 ---
 
