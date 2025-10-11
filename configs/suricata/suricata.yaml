@@ -1,0 +1,51 @@
+# Minimal Suricata config for LightSensor lab
+# NOTE: If you already have a full distro suricata.yaml, copy only the rule-files and outputs blocks.
+
+%YAML 1.1
+---
+# Network variables (keep defaults or adjust)
+vars:
+  address-groups:
+    HOME_NET: "[192.168.0.0/16,10.0.0.0/8,172.16.0.0/12]"
+  port-groups:
+    HTTP_PORTS: "[80,8080,8000,8008,8888]"
+    SSH_PORTS: "[22]"
+
+# Rule files to load
+rule-files:
+  - local.rules
+
+# Logging / outputs
+outputs:
+  - eve-log:
+      enabled: yes
+      filetype: regular
+      filename: /var/log/suricata/eve.json
+      community-id: yes
+      community-id-seed: 0
+      types:
+        - alert:
+        - http:
+        - dns:
+        - tls:
+        - flow
+
+# Detection engine settings (keep light for lab)
+detection:
+  profile: medium
+  # max-pending-packets, etc, keep defaults
+
+# Default logging
+logging:
+  default-log-level: info
+  outputs:
+    - file:
+        enabled: yes
+        filename: /var/log/suricata/suricata.log
+    - console:
+        enabled: no
+
+# Host and capture config (defaults)
+pcap:
+  # leave for pcap mode; for inline/nfqueue use different options
+  # buffer-size, etc, left as default for lab
