@@ -4,17 +4,18 @@
 
 ---
 
-## Table of contents
+## Table of Contents
 
-1. Overview & objectives
-2. Introduction to IDS vs IPS (short)
-3. Architecture and network diagrams
-4. Prerequisites (IDS VM + attacker PC)
-5. Install & configure the IDS (one command)
-6. Start Suricata (IDS mode)
-7. Run attack scripts from your PC (how & examples)
-8. View & parse alerts on the IDS VM
-9. Conclusion
+1. [Overview & objectives](#1---overview--objectives)
+2. [Introduction to IDS vs IPS (short)](#2---introduction-to-ids-vs-ips-short)
+3. [Architecture and network diagrams](#3---architecture-and-network-diagrams)
+4. [Prerequisites (IDS VM + attacker PC)](#4---prerequisites-ids-vm--attacker-pc)
+5. [Install & configure the IDS (one command)](#5---install--configure-the-ids-one-command)
+6. [Start Suricata (IDS mode)](#6---start-suricata-ids-mode)
+7. [Run attack scripts from your PC (how & examples)](#7---run-attack-scripts-from-your-pc-how--examples)
+8. [View & parse alerts on the IDS VM](#8---view--parse-alerts-on-the-ids-vm)
+9. [Conclusion](#9---conclusion)
+
 
 ---
 
