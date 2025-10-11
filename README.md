@@ -138,3 +138,60 @@ chmod +x scripts/tests/*.py
 
 Replace `10.0.0.20` below with your victim IP.
 
+### 7.1 - ICMP burst (hping3)
+
+```bash
+# from attacker machine
+./scripts/tests/icmp_flood.sh 10.0.0.20 200 u1000
+```
+
+### 7.2 - Nmap SYN scan
+
+```bash
+# from attacker machine
+./scripts/tests/nmap_scan.sh 10.0.0.20 200
+```
+
+### 7.3 - HTTP request with sqlmap user-agent
+
+```bash
+# from attacker machine (python)
+./scripts/tests/http_sql_injection.py http://10.0.0.20/
+```
+
+### 7.4 - HTTP GET /evil.php
+
+```bash
+# from attacker machine
+./scripts/tests/http_evil_get.sh http://10.0.0.20/evil.php
+```
+
+Allow a few seconds after each test for Suricata to log events.
+
+---
+
+## 8 — View & parse alerts on IDS VM
+
+### 8.1 - Quick raw tail (live JSON)
+
+```bash
+sudo tail -f /var/log/suricata/eve.json
+```
+
+### 8.2 - Use `jq` to show only alerts in compact form
+
+```bash
+sudo tail -f /var/log/suricata/eve.json | jq -c 'select(.event_type=="alert") | {time:.timestamp, src:.src_ip, dst:.dest_ip, sig:.alert.signature}'
+```
+
+### 8.3 - Use the provided parser for prettier lines
+
+```bash
+python3 scripts/parse_alerts.py | tail -n 50
+```
+
+---
+
+## 9 - Conclusion
+
+The LightSensor lab shows how to deploy and operate a Suricata-based IDS/IPS in a low-resource environment. You learned how to configure detection rules, simulate attacks, and analyze alerts in real time. This setup provides a practical understanding of intrusion detection and prevention, while also serving as a foundation for more advanced network security experiments and enterprise-grade monitoring scenarios.
