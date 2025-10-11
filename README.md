@@ -110,18 +110,6 @@ sudo ./scripts/setup_ids.sh
 
 This script installs packages, creates necessary directories, and copies `configs/suricata/*` to `/etc/suricata/` and `/etc/suricata/rules/`.
 
-3. Identify your interface name:
-
-```bash
-ip a
-```
-
-4. Start Suricata (IDS/pcap mode):
-
-```bash
-sudo suricata -c /etc/suricata/suricata.yaml -i <interface>
-```
-
 ---
 
 ## 6 — Start Suricata (IDS / pcap mode)
