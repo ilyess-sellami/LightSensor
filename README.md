@@ -56,11 +56,11 @@ All connected on internal network (e.g., int-net-lab) or host-only network.
 
 ### 3.2 - Enterprise placement (how IDS/IPS fits into enterprise network)
 
-#### Network Architecture Example with IDS
+#### Network Architecture Example with IDS:
 
 ![Network Architecture Example with IDS](/images/Network-Architecture-Example-with-IDS.png)
 
-#### Network Architecture Example with IPS
+#### Network Architecture Example with IPS:
 
 ![Network Architecture Example with IPS](/images/Network-Architecture-Example-with-IPS.png)
 
