@@ -1,7 +1,5 @@
 # IDS/IPS Lab — "LightSensor" (Suricata)
 
-**Purpose:** a compact, reproducible IDS/IPS lab using Suricata suitable for a low-resource VirtualBox host (≤5GB RAM). This README is ready to drop into a GitHub repository and contains architecture diagrams, installation and configuration steps, example rules, a bash script to install and enable Suricata + local rules, attack simulation steps, and how to view alerts.
-
 ---
 
 ## Table of contents
