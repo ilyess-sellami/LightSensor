@@ -12,9 +12,7 @@
 6. Start Suricata (IDS mode)
 7. Run attack scripts from your PC (how & examples)
 8. View & parse alerts on the IDS VM
-9. Mapping: tests → expected alerts (SIDs)
-10. Troubleshooting & tips
-11. Next steps & license
+9. Conclusion
 
 ---
 
