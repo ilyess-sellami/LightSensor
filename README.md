@@ -1,4 +1,4 @@
-# LightSensor - Suricata IDS/IPS
+# LightSensor - Lightweight Suricata IDS/IPS lab
 
 ---
 
