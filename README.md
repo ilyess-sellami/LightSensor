@@ -1,5 +1,7 @@
 # LightSensor - Lightweight Suricata IDS/IPS lab
 
+---
+
 ![LightSensor](/images/LightSensor.png)
 
 ---
