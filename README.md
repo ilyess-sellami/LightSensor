@@ -4,7 +4,7 @@
 
 ---
 
-![LightSensor](/docs/LightSensor.png)
+![LightSensor](/docs/Github-Banner-Image.png)
 
 ---
 
