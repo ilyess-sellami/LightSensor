@@ -1,8 +1,10 @@
-# LightSensor - Lightweight Suricata IDS/IPS lab
+# LightSensor
+
+**Lightweight Suricata IDS/IPS lab**
 
 ---
 
-![LightSensor](/images/LightSensor.png)
+![LightSensor](/docs/LightSensor.png)
 
 ---
 
@@ -61,11 +63,11 @@ All connected on internal network (e.g., int-net-lab) or host-only network.
 
 #### Network Architecture Example with IDS:
 
-![Network Architecture Example with IDS](/images/Network-Architecture-Example-with-IDS.png)
+![Network Architecture Example with IDS](/docs/Network-Architecture-Example-with-IDS.png)
 
 #### Network Architecture Example with IPS:
 
-![Network Architecture Example with IPS](/images/Network-Architecture-Example-with-IPS.png)
+![Network Architecture Example with IPS](/docs/Network-Architecture-Example-with-IPS.png)
 
 ### 3.3 - How we use IDS vs IPS in enterprise
 
@@ -73,7 +75,7 @@ All connected on internal network (e.g., int-net-lab) or host-only network.
 
 - **IPS (prevention):** Inline device or NSM function — blocks traffic (use only after rigorous testing).
 
-![IDS vs IPS](/images/IDS-vs-IPS.jpeg)
+![IDS vs IPS](/docs/IDS-vs-IPS.jpeg)
 
 ---
 
@@ -131,7 +133,7 @@ sudo suricata -c /etc/suricata/suricata.yaml -i eth0
 - To daemonize, add `-D`.
 - Suricata logs: `/var/log/suricata/suricata.log` and `/var/log/suricata/eve.json`.
 
-![Start Suricata](/images/Start-Suricata.png)
+![Start Suricata](/docs/Start-Suricata.png)
 
 ---
 
@@ -186,7 +188,7 @@ Allow a few seconds after each test for Suricata to log events.
 sudo tail -f /var/log/suricata/eve.json
 ```
 
-![JSON ALERTS](/images/JSON-ALERTS.png)
+![JSON ALERTS](/docs/JSON-ALERTS.png)
 
 ### 8.2 - Use `jq` to show only alerts in compact form
 
@@ -194,7 +196,7 @@ sudo tail -f /var/log/suricata/eve.json
 sudo tail -f /var/log/suricata/eve.json | jq -c 'select(.event_type=="alert") | {time:.timestamp, src:.src_ip, dst:.dest_ip, sig:.alert.signature}'
 ```
 
-![QUERY ALERTS](/images/QUERY-ALERTS.png)
+![QUERY ALERTS](/docs/QUERY-ALERTS.png)
 
 ### 8.3 - Use the provided parser for prettier lines
 
